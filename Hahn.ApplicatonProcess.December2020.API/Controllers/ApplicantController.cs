@@ -25,7 +25,7 @@ namespace Hahn.ApplicatonProcess.December2020.API.Controllers
         {
             var data = _applicantRepository.GetAllApplicant();
 
-            return new OkObjectResult(data);
+            return Ok(data);
         }
 
 

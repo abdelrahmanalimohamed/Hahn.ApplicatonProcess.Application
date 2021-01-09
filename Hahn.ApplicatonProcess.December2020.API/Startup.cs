@@ -31,6 +31,17 @@ namespace Hahn.ApplicatonProcess.December2020.API
         public void ConfigureServices(IServiceCollection services)
         {
             // services.AddControllers();
+            //services.AddCors(c =>
+            //{
+            //    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            //});
+            services.AddCors(o => o.AddPolicy("OurPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
             services.AddMvc();
          
             services.AddDbContext<ApplicantContext>(options => { options.UseInMemoryDatabase("Applicants"); });
@@ -45,6 +56,8 @@ namespace Hahn.ApplicatonProcess.December2020.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("OurPolicy");
 
             app.UseHttpsRedirection();
 
