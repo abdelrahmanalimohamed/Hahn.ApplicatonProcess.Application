@@ -1,22 +1,35 @@
 import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 
+
 @inject(HttpClient)
 export class Fetchdata {
-    public forecasts: WeatherForecast[];
+
+    public applicants: Applicants[] = [];
+
 
     constructor(http: HttpClient) {
-        http.fetch('api/SampleData/WeatherForecasts')
-            .then(result => result.json() as Promise<WeatherForecast[]>)
-            .then(data => {
-                this.forecasts = data;
+        this.getValues(http);
+    }
+    getValues(http: HttpClient) {
+        http.fetch('http://localhost:5005/api/applicant')
+            .then((applicants: { json: () => Promise<Applicants[]>; }) => applicants.json() as Promise<Applicants[]>)
+            .then((data: Applicants[]) => {
+                this.applicants = data;
+                console.log(data);
+
             });
     }
+
+
 }
 
-interface WeatherForecast {
-    dateFormatted: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+
+
+
+interface Applicants {
+    id: number,
+    name: string,
+    FamilyName: string
 }
+

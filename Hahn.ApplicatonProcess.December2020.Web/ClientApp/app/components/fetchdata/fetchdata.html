@@ -1,25 +1,26 @@
 <template>
-    <h1>Weather forecast</h1>
+    <h1>Applicants Data</h1>
+    <p>In Memory Database</p>
 
-    <p>This component demonstrates fetching data from the server.</p>
-
-    <p if.bind="!forecasts"><em>Loading...</em></p>
-
-    <table if.bind="forecasts" class="table">
+    <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Family Name</th>
+                <th>Address</th>
+                <th>Country Of Origin</th>
+
             </tr>
         </thead>
         <tbody>
-            <tr repeat.for="forecast of forecasts">
-                <td>${ forecast.dateFormatted }</td>
-                <td>${ forecast.temperatureC }</td>
-                <td>${ forecast.temperatureF }</td>
-                <td>${ forecast.summary }</td>
+            <tr repeat.for="Applicant of applicants.result">
+                <td>${ Applicant.id }</td>
+                <td>${ Applicant.name }</td>
+                <td>${ Applicant.familyName }</td>
+                <td>${ Applicant.address }</td>
+                <td>${ Applicant.countryofOrigin }</td>
+
             </tr>
         </tbody>
     </table>

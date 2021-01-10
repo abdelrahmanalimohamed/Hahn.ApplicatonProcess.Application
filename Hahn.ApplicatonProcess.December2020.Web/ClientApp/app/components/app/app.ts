@@ -26,7 +26,7 @@ export class App {
             settings: { icon: 'th-list' },
             moduleId: PLATFORM.moduleName('../fetchdata/fetchdata'),
             nav: true,
-            title: 'Fetch data'
+            title: 'Applicant data'
         }]);
 
         this.router = router;
