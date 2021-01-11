@@ -14,14 +14,15 @@ namespace Hahn.ApplicatonProcess.December2020.Web
     {
         public static void Main(string[] args)
         {
-            //BuildWebHost(args).Run();
+            //  BuildWebHost(args).Run();
+
             var host = new WebHostBuilder()
-         .UseKestrel()
-         .UseContentRoot(Directory.GetCurrentDirectory())
-         .UseIISIntegration()
-         .UseStartup<Startup>()
-         .UseUrls("http://localhost:5008")
-         .Build();
+     .UseKestrel()
+     .UseContentRoot(Directory.GetCurrentDirectory())
+     .UseIISIntegration()
+     .UseStartup<Startup>()
+     .UseUrls("http://localhost:5008")
+     .Build();
 
             host.Run();
         }

@@ -2,6 +2,7 @@
     <h1>Applicants Data</h1>
     <p>In Memory Database</p>
 
+    <a route-href="route:insert" class="btn ${clicked ? 'btn-danger' : 'btn-primary'}">Add New Applicant</a>
     <table class="table">
         <thead>
             <tr>
@@ -10,7 +11,8 @@
                 <th>Family Name</th>
                 <th>Address</th>
                 <th>Country Of Origin</th>
-
+                <th>Delete</th>
+                <th>Show</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +22,14 @@
                 <td>${ Applicant.familyName }</td>
                 <td>${ Applicant.address }</td>
                 <td>${ Applicant.countryofOrigin }</td>
+                <td>
+                    <a click.delegate="DeleteApplicant(Applicant.id)" class="btn btn-danger">Delete</a>
+
+                </td>
+
+                <td>
+                    <a route-href="route:applicantdetails; params.bind:{ id:Applicant.id }" class="btn btn-primary">Show</a>
+                </td>
 
             </tr>
         </tbody>

@@ -10,7 +10,7 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Repository
 
         Task <List<Model.ApplicantModel>> GetAllApplicant();
 
-        Task<Model.ApplicantModel> GetApplicant(int? id);
+        Task<Model.ApplicantModel> GetApplicant(int id);
 
         Task<int> UpdateApplicant(int id , Model.ApplicantModel applicantModel);
 

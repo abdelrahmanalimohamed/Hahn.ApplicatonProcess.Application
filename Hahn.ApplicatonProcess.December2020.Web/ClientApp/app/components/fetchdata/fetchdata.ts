@@ -1,3 +1,4 @@
+
 import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 
@@ -5,31 +6,38 @@ import { inject } from 'aurelia-framework';
 @inject(HttpClient)
 export class Fetchdata {
 
-    public applicants: Applicants[] = [];
-
+    public applicants: Applicant[];
+    http_: any;
 
     constructor(http: HttpClient) {
-        this.getValues(http);
-    }
-    getValues(http: HttpClient) {
+        this.http_ = http;
+        //  http.fetch('https://localhost:44304/applicant')
         http.fetch('http://localhost:5005/api/applicant')
-            .then((applicants: { json: () => Promise<Applicants[]>; }) => applicants.json() as Promise<Applicants[]>)
-            .then((data: Applicants[]) => {
+            .then(result => result.json() as Promise<Applicant[]>)
+            .then(data => {
                 this.applicants = data;
-                console.log(data);
+            });
+    }
 
+
+    DeleteApplicant(id: number) {
+        this.http_.fetch('http://localhost:5005/api/applicant/DeleteApplicant?id=' + id + '', {
+            method: "Delete",
+            headers: {
+                "content-type": "application/json; charset=utf-8"
+            }
+        }).then((result: { json: () => Promise<Applicant[]>; }) => result.json() as Promise<Applicant[]>)
+            .then((data: Applicant[]) => {
+                this.applicants = data;
             });
     }
 
 
 }
 
-
-
-
-interface Applicants {
+interface Applicant {
     id: number,
-    name: string,
-    FamilyName: string
+    Name: string
 }
+
 

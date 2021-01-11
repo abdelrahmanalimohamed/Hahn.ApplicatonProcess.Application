@@ -5,21 +5,14 @@ export class App {
     router: Router;
 
     configureRouter(config: RouterConfiguration, router: Router) {
-        config.title = 'Hahn.ApplicatonProcess.December2020.Web';
+        config.title = 'Applicants App';
         config.map([{
-            route: [ '', 'home' ],
+            route: ['', 'home'],
             name: 'home',
             settings: { icon: 'home' },
             moduleId: PLATFORM.moduleName('../home/home'),
-            nav: true,
+            nav: false,
             title: 'Home'
-        }, {
-            route: 'counter',
-            name: 'counter',
-            settings: { icon: 'education' },
-            moduleId: PLATFORM.moduleName('../counter/counter'),
-            nav: true,
-            title: 'Counter'
         }, {
             route: 'fetch-data',
             name: 'fetchdata',
@@ -27,7 +20,24 @@ export class App {
             moduleId: PLATFORM.moduleName('../fetchdata/fetchdata'),
             nav: true,
             title: 'Applicant data'
-        }]);
+        },
+        {
+            route: 'insert',
+            name: 'insert',
+            settings: { icon: 'education' },
+            moduleId: PLATFORM.moduleName('../insert/insert'),
+            nav: false,
+            title: 'Insert data'
+        },
+        {
+            route: 'applicantdetails',
+            name: 'applicantdetails',
+            settings: { icon: 'education' },
+            moduleId: PLATFORM.moduleName('../applicantdetails/applicantdetails'),
+            nav: false,
+            title: 'Applicant Details '
+        }
+        ]);
 
         this.router = router;
     }

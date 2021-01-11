@@ -66,7 +66,7 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Repository
             return allapplicant;
         }
 
-        public async Task<ApplicantModel> GetApplicant(int? id)
+        public async Task<ApplicantModel> GetApplicant(int id)
         {
            //s var applicant = await _applicantContext.Applicants.FindAsync(id);
 
@@ -75,7 +75,14 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Repository
                               select new ApplicantModel
                               {
                                   ID = p.ID , 
-                                  Name = p.Name
+                                  Name = p.Name , 
+                                  FamilyName = p.FamilyName,
+                                  Age = p.Age,
+                                  CountryofOrigin = p.CountryofOrigin,
+                                  EMailAddress = p.EMailAddress ,
+                                  Hired = p.Hired,
+                                  Address = p.Address , 
+                                  
                               }).FirstOrDefaultAsync();
         }
 

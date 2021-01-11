@@ -1,0 +1,57 @@
+﻿<template>
+    <h1>Applicant insert Form</h1>
+    <a route-href="route:fetchdata" class="btn ${clicked ? 'btn-danger' : 'btn-primary'}">Back</a>
+    <br>
+    <form class="form card" submit.delegate="postdata()">
+        <div class="card-block">
+            <h4 class="card-title">Add applicant <i class="fa fa-book" aria-hidden="true"></i></h4>
+            <h6 class="card-subtitle mb-2 text-muted">add a new applicant to your system</h6>
+
+            <hr />
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input name="id" class="form-control" value.bind="id" placeholder='enter a id' required></input>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input name="name" class="form-control" value.bind="name" placeholder='enter a name' required></input>
+            </div>
+
+            <div class="form-group">
+                <label for="address">FamilyName</label>
+                <input name="address" class="form-control" value.bind="familyName" placeholder='enter a a family name' required></input>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input name="email" type="email" class="form-control" value.bind="eMailAddress" placeholder='enter a email' required></input>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input name="address" class="form-control" value.bind="address" placeholder='enter a address' required></input>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label for="country">choose a country</label>
+                <select class="form-control" required value.bind="countryofOrigin">
+                    <option model.bind="country.name">Choose a country</option>
+                    <option repeat.for="country of country" model.bind="country.country">
+                        ${country.name}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hired">Hired</label>
+                <input type="checkbox" name="checkbox" value.bind="hired"><br />
+            </div>
+
+        </div>
+
+        <button type="submit">Save new Applicant</button>
+    </form>
+</template>

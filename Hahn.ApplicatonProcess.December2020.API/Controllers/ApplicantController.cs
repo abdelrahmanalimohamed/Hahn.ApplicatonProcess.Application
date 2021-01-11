@@ -32,7 +32,7 @@ namespace Hahn.ApplicatonProcess.December2020.API.Controllers
 
         [HttpGet]
         [Route("GetApplicant")]
-        public async Task<IActionResult> GetOne(int? id)
+        public async Task<IActionResult> GetApplicant(int id)
         {
             var applicant = await _applicantRepository.GetApplicant(id);
 
@@ -58,7 +58,7 @@ namespace Hahn.ApplicatonProcess.December2020.API.Controllers
 
         [HttpPost]
         [Route("CreateApplicant")]
-        public async Task<IActionResult> CreateApplicant(ApplicantModel applicantModel)
+        public async Task<IActionResult> CreateApplicant([FromBody] ApplicantModel applicantModel)
         {
             var postapplicant = await _applicantRepository.CreateApplicant(applicantModel);
 

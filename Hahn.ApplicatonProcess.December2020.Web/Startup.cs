@@ -32,18 +32,18 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-               
+
             }
             else
             {
                 app.UseExceptionHandler("/Error");
-            
+
                 app.UseHsts();
             }
 
             app.UseStaticFiles();
             app.UseRouting();
-           
+
 
             app.UseEndpoints(endpoints =>
             {

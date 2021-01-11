@@ -1,0 +1,20 @@
+﻿<template>
+    <h1>applicants Details</h1>
+    <hr />
+    <div if.bind="applicants">
+        <dl class="dl-horizontal">
+            <dt>ID</dt>
+            <dd>${applicants.id}</dd>
+            <dt>Name</dt>
+            <dd>${applicants.name}</dd>
+            <dt>Address</dt>
+            <dd>${applicants.familyName}</dd>
+            <!-- <dt>Phone</dt>
+            <dd>${applicants.phone}</dd>
+            <dt>Email</dt>
+            <dd>${applicants.email}</dd> -->
+        </dl>
+    </div>
+    <a route-href="route: fetchdata">Back to List</a>
+    <hr />
+</template>

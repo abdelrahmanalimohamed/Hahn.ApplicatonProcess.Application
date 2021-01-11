@@ -43,7 +43,9 @@ namespace Hahn.ApplicatonProcess.December2020.API
             }));
 
             services.AddMvc();
-         
+
+            services.AddScoped<ApplicantContext>();
+
             services.AddDbContext<ApplicantContext>(options => { options.UseInMemoryDatabase("Applicants"); });
 
             services.AddSingleton<IApplicantRepository, ApplicantRepository>();
